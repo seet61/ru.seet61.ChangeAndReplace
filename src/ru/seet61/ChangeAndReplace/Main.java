@@ -1,6 +1,8 @@
 package ru.seet61.ChangeAndReplace;
 
 import java.io.Console;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Данный класс будет решать сразу две задачи:
@@ -23,10 +25,11 @@ public class Main {
         }
 
         System.out.println("Добро пожаловать!");
-        System.out.println("Доступны два варианта работы:");
-        System.out.println("1 - работа с элементами массива, 2 - замена всех вхождений в троку");
 
         while (true) {
+            System.out.println();
+            System.out.println("Доступны два варианта работы:");
+            System.out.println("1 - работа с элементами массива, 2 - замена всех вхождений в троку, 0 - выход");
             string = c.readLine("Выберете, пожалуйста, выриант: ");
             if (string.length() == 1) {
                 answer = Integer.valueOf(string);
@@ -34,6 +37,10 @@ public class Main {
                     case 1: workWithArray(c);
                             break;
                     case 2: workWithString(c);
+                            break;
+                    case 0:
+                            System.out.println("До скорых встречь!");
+                            System.exit(0);
                             break;
                     default:
                             System.out.println("неверный параметр");
@@ -45,9 +52,26 @@ public class Main {
     }
 
     private static void workWithString(Console c) {
+        //Работаем со строкой
+        String regex = "бяка";
+        String replacement = "*вырезано цензурой*";
+
+        System.out.println("Необходима строка содержащая один или более раз слово \"бяка\" ");
+        String string = c.readLine("Введите строку: ");
+        string = string.replaceAll(regex, replacement);
+        System.out.println("Результат: " + string);
     }
 
     private static void workWithArray(Console c) {
+        //Работаем со строкой
+        double d;
+        List list = new ArrayList<Double>();
+
+        System.out.println("Добавляем значения типа double в массив:");
+        String value = "";
+        while (!value.equals(".")) {
+            list.add(Double.valueOf(c.readLine("Значение: ")));
+        }
     }
 
 
