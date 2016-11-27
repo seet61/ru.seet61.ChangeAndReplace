@@ -39,13 +39,12 @@ public class Main {
                     case 2: workWithString(c);
                             break;
                     case 0:
-                            System.out.println("До скорых встречь!");
+                            System.out.println("До скорых встреч!");
                             System.exit(0);
                             break;
                     default:
                             System.out.println("неверный параметр");
                             break;
-
                 }
             }
         }
@@ -70,9 +69,20 @@ public class Main {
         System.out.println("Добавляем значения типа double в массив:");
         String value = "";
         while (!value.equals(".")) {
-            list.add(Double.valueOf(c.readLine("Значение: ")));
+            value = c.readLine("Значение: ");
+            try {
+                list.add(Double.valueOf(value));
+            }
+            catch (NumberFormatException e) {
+                System.out.println("Введен последний элемент массива");
+            }
         }
+
+        System.out.println("Элементов в массиве: " + list.size());
+        int n = Integer.valueOf(c.readLine("Введите номер элемента для изменения: "));
+        d = (double) list.get(n);
+        System.out.println("Значение " + n + ": " + d);
+        list.set(n, d*0.1);
+        System.out.println("Значение " + n + ": " + (double) list.get(n));
     }
-
-
 }
