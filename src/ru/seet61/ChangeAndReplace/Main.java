@@ -61,7 +61,7 @@ public class Main {
         System.out.println("Результат: " + string);
     }
 
-    private static void workWithArray(Console c) {
+    private static void workWithArray(Console c) { 
         //Работаем со строкой
         double d;
         List list = new ArrayList<Double>();
